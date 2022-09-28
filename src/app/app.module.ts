@@ -6,13 +6,15 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FooterComponent,
-    GlobalErrorComponent
+    GlobalErrorComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

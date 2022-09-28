@@ -9,6 +9,7 @@ import { CurrencyService } from 'src/app/services/currency.service';
 export class FooterComponent implements OnInit {
  
   signes: string[]=[];
+  text: string = "© 2022 Test Task -- Korobko SS"
 
   constructor( public currency:CurrencyService) {}
 

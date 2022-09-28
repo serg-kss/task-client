@@ -1,14 +1,14 @@
 <div>
    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
      <div class="col-md-4 d-flex align-items-center">
-       <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+       <span class="mb-3 mb-md-0 text-muted">{{text}}</span>
      </div>
  
      <ul class="nav col-md-4 justify-content-end d-flex">
        <li class="ms-3" *ngFor="let item of currency.currency; let i = index">
-         <p>{{item.ccy}}</p>
-         <p>{{item.buy | currency : signes[i] : true}}</p>
-         <p>{{item.sale | currency : signes[i] : true}}</p>
+         <p class="text-center fs-5">{{item.ccy}}</p>
+         <p class="text-center fw-semibold">{{item.buy | currency : signes[i] : true}}</p>
+         <p class="text-center fw-semibold">{{item.sale | currency : signes[i] : true}}</p>
       </li>       
      </ul>
    </footer>
