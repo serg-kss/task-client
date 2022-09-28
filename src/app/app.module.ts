@@ -7,6 +7,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { ModalWindowComponent } from './components/modal-window/modal-window.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MainPageDebtsComponent } from './components/main-page-debts/main-page-debts.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +18,17 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     NavComponent,
     FooterComponent,
     GlobalErrorComponent,
-    MainPageComponent
+    MainPageComponent,
+    ModalWindowComponent,
+    LoginFormComponent,
+    MainPageDebtsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

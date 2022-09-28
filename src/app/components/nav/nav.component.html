@@ -15,9 +15,6 @@
          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
        </form>
 
-       <div class="text-end" *ngIf="!login.islogin">
-         <button type="button" class="btn btn-outline-light me-2">Войти</button>
-       </div>
        <div class="text-end" *ngIf="login.islogin">
         <button type="button" class="btn btn-outline-light me-2" (click)="login.logout()">Выйти</button>
       </div>

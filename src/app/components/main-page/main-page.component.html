@@ -4,7 +4,7 @@
       <p class="lead">Задание: лендинг пейдж, используемые технологии: клиент - bootstrap, angular 2+;
          сервер - node.js, express.<br>Сделать todo-шник "задолженность".</p>
       <p class="lead">
-         <button type="button" class="btn btn-warning btn-lg mt-2">Войти</button>
+         <button type="button" class="btn btn-warning btn-lg mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Войти</button>
       </p>
       <div class="text-start mt-5">
          <ul>
@@ -20,3 +20,9 @@
       </div>
    </div> 
 </div>
+
+<!-- Modal -->
+<app-modal-window>
+   <app-login-form></app-login-form>
+</app-modal-window>
+
