@@ -27,8 +27,6 @@ export class LoginFormComponent implements OnInit {
   })
 
   onSubmit(){
-    console.log(this.form.value.email)
-    console.log(this.form.value.pass)
     this.loginService.login(
       this.form.value.email as string,
       this.form.value.pass as string
@@ -41,12 +39,6 @@ export class LoginFormComponent implements OnInit {
         }
       
      })
-  }
-  get email (){
-    return this.form.controls.email as FormControl
-  }
-  get pass (){
-    return this.form.controls.pass as FormControl
   }
 
 }

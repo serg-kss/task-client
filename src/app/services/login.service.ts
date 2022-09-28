@@ -1,6 +1,7 @@
-import { Observable, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -14,9 +15,10 @@ export class LoginService {
 
   logout(){
     this.islogin = false;
+    this.router.navigateByUrl("/");
   }
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient, private router: Router) { }
 
 
   login(email: string, pass: string){

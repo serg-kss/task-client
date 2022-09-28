@@ -11,6 +11,7 @@ import { ModalWindowComponent } from './components/modal-window/modal-window.com
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageDebtsComponent } from './components/main-page-debts/main-page-debts.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MainPageDebtsComponent } from './components/main-page-debts/main-page-d
     MainPageComponent,
     ModalWindowComponent,
     LoginFormComponent,
-    MainPageDebtsComponent
+    MainPageDebtsComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

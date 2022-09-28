@@ -1,0 +1,43 @@
+<div id="cont" class="text-center">
+   <div class="form-signin w-100 m-auto">
+      <form [formGroup]="formUserCreate" (ngSubmit)="onSubmitUser()">
+        <h1 class="h3 mb-3 fw-normal">Пожалуйста заполните форму:</h1>
+        <div class="form-floating">
+          <input 
+                class="form-control" 
+                id="floatingInput" 
+                placeholder="name"
+                formControlName = "name">
+          <label for="floatingInput">Имя</label>
+        </div>
+        <div class="form-floating">
+          <input 
+                class="form-control" 
+                id="floatingInput" 
+                placeholder="surname"
+                formControlName = "surname">
+          <label for="floatingInput">Фамилия</label>
+        </div>   
+        <div class="form-floating">
+          <input 
+                type="email" 
+                class="form-control" 
+                id="floatingInput" 
+                placeholder="name@example.com"
+                formControlName = "email">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input 
+                type="password" 
+                class="form-control" 
+                id="floatingPassword" 
+                placeholder="Password"
+                formControlName = "pass">
+          <label for="floatingPassword">Password</label>
+        </div>    
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Регистрация</button>
+        <a type="button" class="w-100 btn btn-lg btn-secondary mt-2" routerLink="/">Назад</a>
+      </form>
+    </div>
+</div>
