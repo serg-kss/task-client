@@ -22,6 +22,16 @@ export class FooterComponent implements OnInit {
   }
 
 
+  setDate(){
+    let date = new Date();
+    let day = (date.getDay()+1).toString();
+    let month = (date.getMonth()+1).toString();
+    let year = date.getFullYear().toString();
+    let today:string = day + "." + month + "." + year;
+    return today;
+  }
+
+
 
   
 
