@@ -1,0 +1,56 @@
+<form #form="ngForm" (ngSubmit)="calculate(form)">   
+   <div class="input-group">
+      <label class="input-group-text" for="inputGroupSelect01">Валюта</label>
+      <select class="form-select" id="inputGroupSelect01" name="selectedCurrency" [(ngModel)]="selectedCurrency">
+        <option selected>USD</option>
+        <option value="UAH">UAH</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div class="input-group mt-1">
+      <input 
+         type="number" 
+         class="form-control" 
+         placeholder="Введите сумму" 
+         aria-describedby="button-addon2"
+         name="amount"
+         [(ngModel)]="amount" 
+         required />
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Результат</button>
+    </div>
+</form>
+
+<div>
+   <h5>{{!isUah?'Продажа:':''}}</h5>
+   <table class="table">
+      <thead>
+         <tr>
+           <th scope="col" *ngFor="let name of names">{{name}}</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>{{calculation[0]}}</td>
+           <td>{{calculation[1]}}</td>
+           <td>{{calculation[2]}}</td>
+         </tr>         
+       </tbody>
+   </table>
+</div>
+<div *ngIf="!isUah">
+   <h5>Покупка:</h5>
+   <table class="table">
+      <thead>
+         <tr>
+           <th scope="col" *ngFor="let name of names">{{name}}</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td>{{calculation[0]}}</td>
+           <td>{{calculation[1]}}</td>
+           <td>{{calculation[3]}}</td>
+         </tr>         
+       </tbody>
+   </table>
+</div> 

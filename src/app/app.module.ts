@@ -12,6 +12,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageDebtsComponent } from './components/main-page-debts/main-page-debts.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     ModalWindowComponent,
     LoginFormComponent,
     MainPageDebtsComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CurrencyConverterComponent
   ],
   imports: [
     BrowserModule,
