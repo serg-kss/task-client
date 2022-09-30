@@ -1,5 +1,6 @@
+import { TitleDebts } from './../../models/title-debts';
+import { Debts } from './../../models/debts';
 import { Component, OnInit } from '@angular/core';
-import { SpecialDebt } from 'src/app/models/sDebt';
 import { UserData } from 'src/app/models/userData';
 import { DataServerService } from 'src/app/services/data-server.service';
 
@@ -11,10 +12,11 @@ import { DataServerService } from 'src/app/services/data-server.service';
 export class MainPageDebtsComponent implements OnInit {
 
   users:UserData[] | undefined;
-  debts:any = [];
-  special_debt:any =[]
+  debts:Debts[][];
+  index:number = 0;
+  
 
-  titles:string[] = ["Электроэнергия", "Газ", "Вода"]
+  titles:TitleDebts[] =[];
 
   constructor(public dataServer:DataServerService) { 
     
@@ -22,30 +24,15 @@ export class MainPageDebtsComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataServer.getUsers().subscribe(users => this.users = users);
-    this.dataServer.getDebts().subscribe(debts => {
-      this.debts = debts;
-
-      for (let index = 0; index < this.debts.length; index++) {
-        this.special_debt.push(this.debts[index][1])       
-      }
-    });
-
+    this.dataServer.getDebts().subscribe(debts => {this.debts = debts;console.log(this.debts)});
+    this.dataServer.getServices().subscribe(titles => {this.titles = titles; console.log(this.titles)});
   }
 
   changeDebt(debt:string){
-    if (debt=="Электроэнергия") {
-      for (let index = 0; index < this.debts.length; index++) {
-        this.special_debt.push(this.debts[index][1])       
+    for(let i = 0; i<this.titles.length; i++){
+      if(debt == this.titles[i].debt){
+        this.index = i;
       }
-    }else if(debt=="Газ"){
-      for (let index = 0; index < this.debts.length; index++) {
-        this.special_debt.push(this.debts[index][2])       
-      }
-    }else if(debt=="Вода"){
-      for (let index = 0; index < this.debts.length; index++) {
-        this.special_debt.push(this.debts[index][3])  
-      }
-
     }
   }
 }

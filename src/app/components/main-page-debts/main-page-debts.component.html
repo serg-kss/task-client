@@ -11,8 +11,8 @@
      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
        <div class="position-sticky pt-3 sidebar-sticky">
          <ul class="nav flex-column">
-           <li class="nav-item" *ngFor="let title of titles">
-            <button type="button" class="btn btn-light" (click)="changeDebt(title)">{{title}}</button>
+           <li class="nav-item" *ngFor="let item of titles">
+            <button type="button" class="btn btn-light" (click)="changeDebt(item.debt)">{{item.debt}}</button>
            </li>           
          </ul>        
        </div>
@@ -35,9 +35,9 @@
              <tr *ngFor="let user of users; let i = index">
                <td>{{i+1}})</td>
                <td><span>{{user.name}} </span><span>{{user.surname}}</span></td>
-               <td>{{special_debt[i].debt_sum}}</td>
-               <td>{{special_debt[i].debt_date}}</td>
-               <td>{{special_debt[i].informed}}</td>
+               <td>{{debts[i][index].debt_sum}}</td>
+               <td>{{debts[i][index].debt_date}}</td>
+               <td>{{debts[i][index].informed}}</td>
              </tr>
            </tbody>
          </table>
