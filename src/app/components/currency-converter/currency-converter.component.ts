@@ -34,6 +34,13 @@ export class CurrencyConverterComponent{
     this.calculation = ["-","-"];
   }
 
+  close(){
+    this.clear();
+    this.amount= 1;
+    this.selectedCurrency = undefined;
+    this.isUah = false;
+  }
+
   calculate(form: NgForm){
     if (form.valid) {
 
