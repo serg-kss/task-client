@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -8,12 +8,12 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent{
 
-  constructor(public loginService: LoginService,private router: Router) { }
+  constructor(
+    public loginService: LoginService,
+    private router: Router) { }
 
-  ngOnInit(): void {
-  }
 
   form = new FormGroup({
     email: new FormControl('', [
@@ -31,14 +31,15 @@ export class LoginFormComponent implements OnInit {
       this.form.value.email as string,
       this.form.value.pass as string
     ).subscribe((data:any) =>{ 
-        let array = data
-        console.log(array[1].auth)
+        let array = data;
         if (array[1].auth == "Ok") {
           this.loginService.islogin = true;
           this.router.navigateByUrl("/debts");
+        } else  
+        {
+          this.router.navigateByUrl("/");
+          console.log('login error')
         }
-      
-     })
+    })      
   }
-
 }

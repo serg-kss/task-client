@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { MainPageDebtsComponent } from './components/main-page-debts/main-page-debts.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { MainPageGuard } from './mainPageFirst.guard';
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
-  {path: 'debts', component: MainPageDebtsComponent},
-  {path: 'create_user', component: CreateUserComponent},
+  {path: '', component: MainPageComponent, canActivate: [MainPageGuard]},
+  {path: 'debts', component: MainPageDebtsComponent, canActivate: [MainPageGuard]},
+  {path: 'create_user', component: CreateUserComponent, canActivate: [MainPageGuard]},
 ];
 
 @NgModule({

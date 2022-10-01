@@ -16,7 +16,7 @@ export class MainPageDebtsComponent implements OnInit {
   users:UserData[] | undefined;
   debts:Debts[][];
   index:number = 0;
-  titles:TitleDebts[] =[];
+  titles:TitleDebts[];
   title:string = ""
 
   constructor(

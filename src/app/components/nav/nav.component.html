@@ -2,11 +2,11 @@
    <div class="container">
      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-         <li><a routerLink="/" class="nav-link px-2 text-white">Home Page</a></li>
-         <li><a routerLink="#" class="nav-link px-2 text-secondary">Some dashbords</a></li>
-         <li><a routerLink="#" class="nav-link px-2 text-secondary">Some statistics</a></li>
-         <li><a routerLink="#" class="nav-link px-2 text-secondary">Some info</a></li>
-         <li><a routerLink="#" class="nav-link px-2 text-secondary">About</a></li>
+         <li><a routerLink="" class="nav-link px-2 text-white">{{login.islogin?'Панель Управления':'Welcome'}}</a></li>
+         <li><a routerLink="" class="nav-link px-2 text-secondary">{{login.islogin?'Статистика':'-----'}}</a></li>
+         <li><a routerLink="" class="nav-link px-2 text-secondary">{{login.islogin?'Графики':'-----'}}</a></li>
+         <li><a routerLink="" class="nav-link px-2 text-secondary">{{login.islogin?'Доп. информация':'-----'}}</a></li>
+         <li><a routerLink="" class="nav-link px-2 text-secondary">{{login.islogin?'Передать коллекторам':'-----'}}</a></li>
        </ul>
        <div class="text-end" *ngIf="login.islogin">
         <a routerLink="/create_user" routerLinkActive="router-link-active" class="btn btn-outline-warning me-2">Добавить пользователя</a>
