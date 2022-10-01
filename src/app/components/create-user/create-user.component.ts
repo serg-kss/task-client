@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateUserService } from 'src/app/services/create-user.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-create-user',
@@ -10,7 +11,11 @@ import { CreateUserService } from 'src/app/services/create-user.service';
 })
 export class CreateUserComponent implements OnInit {
 
-  constructor(private createUser:CreateUserService, private router: Router) { }
+  constructor(
+    private createUser: CreateUserService, 
+    private router: Router, 
+    private login: LoginService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -38,7 +43,10 @@ export class CreateUserComponent implements OnInit {
       this.formUserCreate.value.pass as string
     ).subscribe((data:any)=>{
       if(data.createUser == "Ok"){
-        this.router.navigateByUrl("/");
+        if(this.login.islogin){
+          this.router.navigateByUrl("/debts");
+        } else this.router.navigateByUrl("/");
+        
       }
     })
   }

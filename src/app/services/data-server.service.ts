@@ -14,7 +14,7 @@ export class DataServerService {
 
   usersArray: UserData[] | undefined
   debts:Debts[][] | undefined
-  services:TitleDebts[]| undefined
+  services:TitleDebts[] = []
 
   getUsers(): Observable<UserData[]>{
     return this.http.get<UserData[]>('http://localhost:8080/api/all_users').pipe(
@@ -43,8 +43,10 @@ export class DataServerService {
     )
   }
 
+ 
+
   createService(debt:string): Observable<TitleDebts>{
-    return this.http.post<TitleDebts>('http://localhost:8080/api/create_user', {
+    return this.http.post<TitleDebts>('http://localhost:8080/api/create_services', {
       debt:debt
    })
   }
