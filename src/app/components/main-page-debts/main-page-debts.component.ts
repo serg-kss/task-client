@@ -19,10 +19,6 @@ export class MainPageDebtsComponent implements OnInit {
   titles:TitleDebts[] =[];
   title:string = ""
 
-
-
-
-
   constructor(
     public dataServer:DataServerService,
     public login: LoginService
@@ -42,12 +38,28 @@ export class MainPageDebtsComponent implements OnInit {
     }
   }
 
-  submit(form: NgForm){
+  createService(form: NgForm){
     if(form.valid){
       this.dataServer.createService(this.title).subscribe(()=>{
         this.dataServer.getServices().subscribe(titles => this.titles = titles);
         this.dataServer.getDebts().subscribe(debts => this.debts = debts);
+        this.index = this.titles.length;
       })
     }
+  }
+
+  deleteUser(index:number){
+    this.dataServer.deleteUser(index).subscribe((users)=>{
+      this.users = users;
+    })
+  }
+
+  deleteService(index:number){
+    this.dataServer.deleteService(index).subscribe((titles)=>{
+      this.titles = titles;
+      console.log(this.titles);
+      this.dataServer.getDebts().subscribe(debts => this.debts = debts);
+      this.index = 0;
+    })
   }
 }

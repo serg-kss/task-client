@@ -25,6 +25,10 @@ export class DataServerService {
     )
   }
 
+  deleteUser(i:number): Observable<UserData[]>{
+    return this.http.delete<UserData[]>('http://localhost:8080/api/delete_user/'+i)
+  }
+
   getDebts(): Observable<Debts[][]>{
     return this.http.get<Debts[][]>('http://localhost:8080/api/all_users_debts').pipe(
      retry(2),
@@ -44,12 +48,16 @@ export class DataServerService {
   }
 
  
-
   createService(debt:string): Observable<TitleDebts>{
     return this.http.post<TitleDebts>('http://localhost:8080/api/create_services', {
       debt:debt
    })
   }
-    
-  
+
+  deleteService(i:number): Observable<TitleDebts[]>{
+    return this.http.delete<TitleDebts[]>('http://localhost:8080/api/delete_services/'+i)
+  }
+
+
+     
 }
