@@ -1,1 +1,12 @@
-<p>global-error works!</p>
+<div class="bg-white"
+  *ngIf="errorService.error$ | async as error"
+  >
+  <div class="toast-header">
+    <strong class="me-auto">Ошибка</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" (click)="errorService.clear()"></button>
+  </div>
+  <div class="toast-body">
+    <h5>{{error}}></h5>
+  </div>
+</div>
+

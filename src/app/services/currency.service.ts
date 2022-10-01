@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, retry, tap } from 'rxjs';
+import { catchError, Observable, retry, tap, throwError } from 'rxjs';
 import { Сurrency } from '../models/currency';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class CurrencyService {
   currency: Сurrency[] = [];
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private errorService: ErrorService
   ) { }
 
   getCurrency(): Observable<Сurrency[]>{
@@ -19,7 +21,13 @@ export class CurrencyService {
      retry(2),
      tap(currency => {
       this.currency = currency; 
-      this.currency = this.currency.slice(0,2);})
+      this.currency = this.currency.slice(0,2);}),
+      catchError(this.errorHandler.bind(this))
     )
   }
+
+  private errorHandler(error: HttpErrorResponse){
+    this.errorService.handle(error.message)
+    return throwError(() => error.message)    
+ }
 }

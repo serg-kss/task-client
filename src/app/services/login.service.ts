@@ -1,7 +1,8 @@
-import { tap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { catchError, tap, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { ErrorService } from './error.service';
 
 
 
@@ -18,7 +19,10 @@ export class LoginService {
     this.router.navigateByUrl("/");
   }
 
-  constructor( private http: HttpClient, private router: Router) { }
+  constructor( 
+    private http: HttpClient, 
+    private router: Router,
+    private errorService: ErrorService) { }
 
 
   login(email: string, pass: string){
@@ -26,7 +30,14 @@ export class LoginService {
       email:email,
       password:pass
    }).pipe(
-    tap(data => this.userData=data)
+    tap(data => this.userData=data),
+    catchError(this.errorHandler.bind(this))
    )
   }
+
+  private errorHandler(error: HttpErrorResponse){
+    this.errorService.handle(error.message)
+    return throwError(() => error.message)   
+ }
+
 }
