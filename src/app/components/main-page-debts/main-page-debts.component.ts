@@ -13,11 +13,12 @@ import { NgForm } from '@angular/forms';
 })
 export class MainPageDebtsComponent implements OnInit {
 
-  users:UserData[] | undefined;
+  users:UserData[] = [];
   debts:Debts[][];
   index:number = 0;
   titles:TitleDebts[];
   title:string = ""
+  term = ""
 
   constructor(
     public dataServer:DataServerService,

@@ -1,9 +1,14 @@
 <div class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">{{'Админ: ' + login.userData[0].name + ' ' + login.userData[0].surname}}</a>
+   <a class="navbar-brand col-md-3 col-lg-3 me-0 px-3 fs-6">{{'Админ: ' + login.userData[0].name + ' ' + login.userData[0].surname}}</a>
    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
    </button>
-   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+   <input 
+      class="form-control form-control-dark w-100 rounded-0 border-0" 
+      type="text" 
+      placeholder="Поиск по фамилии" 
+      aria-label="Search"
+      [(ngModel)]="term">
 </div>
 
 <div class="container-fluid">
@@ -13,7 +18,7 @@
          <ul class="nav flex-column">
            <li class="nav-item" *ngFor="let item of titles; let i = index">
             <button type="button" class="btn btn-danger btn-sm" (click)="deleteService(i)">-</button>
-            <button type="button" class="btn btn-light" (click)="changeDebt(item.debt)">{{item.debt}}</button>
+            <button type="button" class="btn btn-light ms-2" (click)="changeDebt(item.debt)">{{item.debt}}</button>
            </li>           
          </ul>
          <button type="button" class="btn btn-outline-warning mb-2 btn-sm" data-bs-toggle="modal" data-bs-target="#debtModal">Задолженность +</button>        
@@ -34,7 +39,7 @@
              </tr>
            </thead>
            <tbody>
-             <tr *ngFor="let user of users; let i = index">
+             <tr *ngFor="let user of users | filter:term; let i = index ">
                <td>{{i+1}})</td>
                <td><span>{{user.name}} </span><span>{{user.surname}}</span></td>
                <td>{{debts[i][index].debt_sum}}</td>

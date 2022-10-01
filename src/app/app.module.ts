@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageDebtsComponent } from './components/main-page-debts/main-page-debts.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CurrencyConverterComponent } from './components/currency-converter/curr
     LoginFormComponent,
     MainPageDebtsComponent,
     CreateUserComponent,
-    CurrencyConverterComponent
+    CurrencyConverterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
