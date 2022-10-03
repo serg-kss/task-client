@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CreateUserService } from 'src/app/services/create-user.service';
 import { LoginService } from 'src/app/services/login.service';
 
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -42,13 +43,13 @@ export class CreateUserComponent implements OnInit {
       this.formUserCreate.value.email as string,
       this.formUserCreate.value.pass as string
     ).subscribe((data:any)=>{
+
       if(data.createUser == "Ok"){
         if(this.login.islogin){
           this.router.navigateByUrl("/debts");
-        } else this.router.navigateByUrl("/");
-        
+        } else this.router.navigateByUrl("/");       
       }
+
     })
   }
-
 }

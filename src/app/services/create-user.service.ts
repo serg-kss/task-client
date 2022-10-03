@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { ErrorService } from './error.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CreateUserService {
-
 
   constructor(
     private http: HttpClient,

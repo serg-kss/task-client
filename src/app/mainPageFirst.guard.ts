@@ -3,7 +3,6 @@ import {ActivatedRouteSnapshot, RouterStateSnapshot, Router} from "@angular/rout
 import { MainPageComponent } from "./components/main-page/main-page.component";
 
 
-
 @Injectable({
    providedIn: 'root'
  })

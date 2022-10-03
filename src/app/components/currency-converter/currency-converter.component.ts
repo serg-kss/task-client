@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CurrencyService } from 'src/app/services/currency.service';
 
+
 @Component({
   selector: 'app-currency-converter',
   templateUrl: './currency-converter.component.html',

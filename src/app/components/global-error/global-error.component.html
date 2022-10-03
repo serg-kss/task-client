@@ -1,6 +1,4 @@
-<div class="bg-white"
-  *ngIf="errorService.error$ | async as error"
-  >
+<div class="bg-white" *ngIf="errorService.error$ | async as error">
   <div class="toast-header">
     <strong class="me-auto">Ошибка</strong>
     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" (click)="errorService.clear()"></button>

@@ -8,13 +8,13 @@ export class ModalService {
 
   constructor() { }
 
-  isVisible$ = new BehaviorSubject<boolean>(false)
+  isVisible$ = new BehaviorSubject<boolean>(false);
 
   open() { 
-    this.isVisible$.next(true)
+    this.isVisible$.next(true);
   }
 
   close() { 
-    this.isVisible$.next(false)
+    this.isVisible$.next(false);
   }
 }

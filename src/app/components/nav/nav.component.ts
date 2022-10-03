@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -6,11 +6,9 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
 
   constructor(public login:LoginService) { }
 
-  ngOnInit(): void {
-  }
 
 }

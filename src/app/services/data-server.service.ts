@@ -6,6 +6,7 @@ import { UserData } from '../models/userData';
 import { TitleDebts } from '../models/title-debts';
 import { ErrorService } from './error.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,7 +55,6 @@ export class DataServerService {
     catchError(this.errorHandler.bind(this))
     )
   }
-
  
   createService(debt:string): Observable<TitleDebts>{
     return this.http.post<TitleDebts>('http://localhost:8080/api/create_services', {
@@ -67,10 +67,10 @@ export class DataServerService {
       catchError(this.errorHandler.bind(this))
     )
   }
+  
   private errorHandler(error: HttpErrorResponse){
     this.errorService.handle(error.message)
     return throwError(() => error.message)   
  }
-
      
 }

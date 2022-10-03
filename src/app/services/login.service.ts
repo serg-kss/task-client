@@ -12,7 +12,7 @@ import { ErrorService } from './error.service';
 export class LoginService {
 
   islogin:boolean = false;
-  userData:any=[]
+  userData:any=[];
 
   logout(){
     this.islogin = false;
@@ -23,7 +23,6 @@ export class LoginService {
     private http: HttpClient, 
     private router: Router,
     private errorService: ErrorService) { }
-
 
   login(email: string, pass: string){
     return this.http.post('http://localhost:8080/api/authentication', {

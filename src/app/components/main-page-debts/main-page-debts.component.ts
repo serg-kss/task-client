@@ -6,6 +6,7 @@ import { DataServerService } from 'src/app/services/data-server.service';
 import { LoginService } from 'src/app/services/login.service';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-main-page-debts',
   templateUrl: './main-page-debts.component.html',
@@ -17,8 +18,8 @@ export class MainPageDebtsComponent implements OnInit {
   debts:Debts[][];
   index:number = 0;
   titles:TitleDebts[];
-  title:string = ""
-  term = ""
+  title:string = "";
+  term = "";
 
   constructor(
     public dataServer:DataServerService,
